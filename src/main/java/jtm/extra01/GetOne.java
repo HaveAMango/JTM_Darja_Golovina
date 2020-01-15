@@ -1,8 +1,30 @@
 package jtm.extra01;
 
 public class GetOne {
+	int iterationCount = 0;
 
 	public int iterations(int number) {
+		
+
+//		for (int i = number; i>=1; i-- ) {
+//			if (i/2 == 0) {
+//				i= i/2;
+//			}else {
+//				i = (i*3)+1;
+//			}
+//			iterationCount++;
+//		}
+
+		while (number > 1) {
+			if (number / 2 == 0) {
+				number = number / 2;
+			} else {
+				number = (number * 3) + 1;
+			}
+			iterationCount++;
+		}
+		return iterationCount;
+
 		// TODO #1: Implement method which processes the passed positive number
 		// value until it's
 		// reduced to 1.
@@ -12,11 +34,11 @@ public class GetOne {
 		// passed number is 6. Path to completion would be:
 		// 6->3->10->5->16->8->4->2->1. Iteration count=8.
 		// HINT: Use while loop.
-		int iterationCount = 0;
-		return iterationCount;
+
 	}
 
 	public int theMostComplexNo(int maxNumber) {
+
 		// TODO #2: Calculate how many iterations each number from 1 to
 		// maxNumber (including) to get value till 1.
 		// Return the number, which takes most iterations to do that.
@@ -25,6 +47,12 @@ public class GetOne {
 		// (If count of iterations is the same for several numbers, return
 		// smallest number).
 		return 0;
+	}
+
+	public static void main(String[] args) {
+
+		GetOne one = new GetOne();
+		one.iterations(7);
 	}
 
 }
