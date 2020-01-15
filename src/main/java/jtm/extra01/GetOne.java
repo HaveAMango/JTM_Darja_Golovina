@@ -1,11 +1,11 @@
 package jtm.extra01;
 
 public class GetOne {
-	int iterationCount = 0;
+	
 
 	public int iterations(int number) {
 		
-
+		int iterationCount = 0;
 //		for (int i = number; i>=1; i-- ) {
 //			if (i/2 == 0) {
 //				i= i/2;
@@ -16,11 +16,13 @@ public class GetOne {
 //		}
 
 		while (number > 1) {
-			if (number / 2 == 0) {
+		
+			if (number % 2 == 0) {
 				number = number / 2;
 			} else {
 				number = (number * 3) + 1;
 			}
+			
 			iterationCount++;
 		}
 		return iterationCount;
@@ -52,7 +54,8 @@ public class GetOne {
 	public static void main(String[] args) {
 
 		GetOne one = new GetOne();
-		one.iterations(7);
+		
+		System.out.println(one.iterations(6));
 	}
 
 }
