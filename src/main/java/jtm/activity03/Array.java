@@ -6,6 +6,12 @@ public class Array {
 	static int[] array;
 
 	public static void main(String[] args) {
+		System.out.println(Arrays.toString(args));
+		int size = args.length;
+		// init array field to int[] with size equal to args length
+		// convert all elements to int -> write to array field
+		
+		
 		// TODO Use passed parameters for main method to initialize array
 		// Hint: use Run— Run configurations... Arguments to pass parameters to
 		// main method when calling from Eclipse
