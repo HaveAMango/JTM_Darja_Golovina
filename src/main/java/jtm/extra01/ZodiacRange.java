@@ -1,11 +1,11 @@
 package jtm.extra01;
 
-public class Range {
+public class ZodiacRange {
 
 	private Date from;
 	private Date to;
 	
-	public Range(Date from, Date to) {
+	public ZodiacRange(Date from, Date to) {
 		this.from = from;
 		this.to = to;
 	}

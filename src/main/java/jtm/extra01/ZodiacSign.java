@@ -3,9 +3,9 @@ package jtm.extra01;
 public class ZodiacSign {
 
 	private String name;
-	private Range range;
+	private ZodiacRange range;
 
-	public ZodiacSign(String name, Range range) {
+	public ZodiacSign(String name, ZodiacRange range) {
 		this.name = name;
 		this.range = range;
 	}
@@ -14,7 +14,7 @@ public class ZodiacSign {
 		return name;
 	}
 
-	public Range getRange() {
+	public ZodiacRange getRange() {
 		return range;
 	}
 

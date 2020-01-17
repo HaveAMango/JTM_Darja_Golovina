@@ -18,6 +18,16 @@ public class BlackKnight {
 	public String name; // knight name
 	public byte arms, legs, head; // number of limbs
 	public boolean alive; // is knight alive
+	
+	
+
+	public BlackKnight(String name, byte arms, byte legs, byte head, boolean alive) {
+		this.name = name;
+		this.arms = arms;
+		this.legs = legs;
+		this.head = head;
+		this.alive = alive;
+	}
 
 	public static void setBattle(int initialNumber) {
 		// TODO initialize new array of knights with the passed size.

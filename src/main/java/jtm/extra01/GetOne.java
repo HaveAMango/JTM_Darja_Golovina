@@ -26,6 +26,8 @@ public class GetOne {
 		}
 		return iterationCount;
 
+		
+		
 		// TODO #1: Implement method which processes the passed positive number
 		// value until it's
 		// reduced to 1.
@@ -40,6 +42,7 @@ public class GetOne {
 
 	public int theMostComplexNo(int maxNumber) {
 
+		
 		// TODO #2: Calculate how many iterations each number from 1 to
 		// maxNumber (including) to get value till 1.
 		// Return the number, which takes most iterations to do that.
