@@ -8,9 +8,9 @@ public class Array {
 	public static void main(String[] args) {
 		System.out.println(Arrays.toString(args));
 		int size = args.length;
-		int[] arr = new int[size];
+		array = new int[size];
 		for (int i = 0; i < size; i++) {
-			arr[i] = Integer.parseInt(args[i]);
+			array[i] = Integer.parseInt(args[i]);
 		}
 		printSortedArray();
 		returnSortedArray();
@@ -35,7 +35,7 @@ public class Array {
 		// TODO print content of array on standard output
 		// Hint: use Arrays.toString(array) method for this
 		// START
-
+		Arrays.sort(array); 
 		System.out.println(Arrays.toString(Array.array));
 
 		// END

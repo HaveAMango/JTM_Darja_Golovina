@@ -1,5 +1,7 @@
 package jtm.activity03;
 
+import java.util.Arrays;
+
 /**
  * Black Knight is brave soldier who fights till he is alive. He doesn't bother
  * if some of his arms or legs are cut off. You can kill him only when he lose
@@ -19,21 +21,15 @@ public class BlackKnight {
 	public byte arms, legs, head; // number of limbs
 	public boolean alive; // is knight alive
 	
-	
-
-	public BlackKnight(String name, byte arms, byte legs, byte head, boolean alive) {
-		this.name = name;
-		this.arms = arms;
-		this.legs = legs;
-		this.head = head;
-		this.alive = alive;
-	}
 
 	public static void setBattle(int initialNumber) {
 		// TODO initialize new array of knights with the passed size.
 		// Reset total numbers of total and alive knights to zero
 		// START
-
+		knights = new BlackKnight[initialNumber];
+		totalKnights = 0;
+		aliveKnights = 0;
+		deadKnights = 0;
 		// END
 	}
 
@@ -47,11 +43,26 @@ public class BlackKnight {
 		// HINT: use "this.name" to access name of knight which otherwise is shadowed
 		// by parameter of constructor, which is also called "name"
 		// START
-
+		this.arms = 2;
+		this.head = 1;
+		this.legs = 2;
+		this.name = name;
+		this.alive = true;
+		for (int i = 0; i < knights.length; i++) {
+			if (knights[i] == null) {
+				knights[i] = this;
+				break;
+			}
+		}
+		
+		totalKnights++;
+		aliveKnights++;
 		// END
 	}
 
 	public String cutOffArm() {
+		//проверить жив ли
+		//arms check
 		// TODO handle cutting off knight's arms in following way:
 		// If knight is dead, return "Only chicken beats dead!"
 		// If knight has some arms, cut one off and return "Bugger!"
@@ -71,7 +82,7 @@ public class BlackKnight {
 
 		// END
 		return "";
-	}
+ 	}
 
 	public String cutOffHead() {
 		// TODO handle cutting off knight's head in following way:
@@ -90,12 +101,19 @@ public class BlackKnight {
 
 	// START
 	private String aliveKnights() {
+		String[] names = new String[knights.length];
+		for (int i = 0; i < knights.length; i++) {
+			//only alive
+			names[i] = knights[i].name;
+		}
+		
+		return String.join(",", names);
 		// TODO
+		//
 		// Build comma separated string of knights who are still alive
 		// e.g. if Cnut and Arthur are still alive return Cnut, Arthur
 		// If only Arthur is alive return Arthur
 		// If no one is alive return empty string
-		return null;
 	}
 	// END
 }
