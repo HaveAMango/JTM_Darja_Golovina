@@ -20,7 +20,6 @@ public class BlackKnight {
 	public String name; // knight name
 	public byte arms, legs, head; // number of limbs
 	public boolean alive; // is knight alive
-	
 
 	public static void setBattle(int initialNumber) {
 		// TODO initialize new array of knights with the passed size.
@@ -54,23 +53,30 @@ public class BlackKnight {
 				break;
 			}
 		}
-		
+
 		totalKnights++;
 		aliveKnights++;
 		// END
 	}
 
 	public String cutOffArm() {
-		//проверить жив ли
-		//arms check
+		// проверить жив ли
+		// arms check
 		// TODO handle cutting off knight's arms in following way:
 		// If knight is dead, return "Only chicken beats dead!"
 		// If knight has some arms, cut one off and return "Bugger!"
 		// Else return just "Haah!"
 		// START
-
-		// END
-		return "";
+		if (this.alive) {
+			if (arms > 0) {
+				arms--;
+				return "Bugger!";
+			} else {
+				return "Haah!";
+			}
+		} else {
+			return "Only chicken beats dead!";
+		}
 	}
 
 	public String cutOffLeg() {
@@ -79,10 +85,18 @@ public class BlackKnight {
 		// If knight has some legs, cut one off and return "Bollocks!"
 		// Else return just "Haah!"
 		// START
+		if (this.alive) {
+			if (legs > 0) {
+				legs--;
+				return "Bollocks!";
+			} else {
+				return "Haah!";
+			}
+		} else {
+			return "Only chicken beats dead!";
+		}
 
-		// END
-		return "";
- 	}
+	}
 
 	public String cutOffHead() {
 		// TODO handle cutting off knight's head in following way:
@@ -94,7 +108,18 @@ public class BlackKnight {
 		// Where "Arthur, Cnut" are names of still alive knights
 		// Else return "You'l burn in hell forever!"
 		// START
-
+		if (!this.alive) {
+			return "Only chicken beats dead!";
+		}
+		if (head > 0) {
+			head--;
+			this.alive = false;
+			if (aliveKnights > 0) {
+				return "You'l newer win! " + aliveKnights() + " will still fight!";
+			} else {
+				return "You'l burn in hell forever!";
+			}
+		}
 		// END
 		return "";
 	}
@@ -102,12 +127,18 @@ public class BlackKnight {
 	// START
 	private String aliveKnights() {
 		String[] names = new String[knights.length];
+		//String[] aliveNames = new String[];
 		for (int i = 0; i < knights.length; i++) {
-			//only alive
-			names[i] = knights[i].name;
+			if (knights[i].alive == true) {
+				String[] aliveNames = new String[i];
+				//names[i] = knights[i].name;
+				return String.join(", ", aliveNames);
+			}else {
+				return names[0];
+			}
 		}
+
 		
-		return String.join(",", names);
 		// TODO
 		//
 		// Build comma separated string of knights who are still alive
