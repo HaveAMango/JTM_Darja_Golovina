@@ -17,7 +17,22 @@ public class TenMinWalk {
         It will never give you an empty array (that's not a walk, that's standing still!).
      */
     public static boolean isValid(char[] walk) {
-
-        return false;
+int x = 0;
+int y = 0;
+for(char dir : walk) {
+	if (walk.length != 10) {
+		return false;
+	}
+	if(dir == 'n') {
+			y--;
+	}else if(dir == 's') {
+		y++;
+	}else if(dir == 'e') {
+		x++;
+	}else if (dir =='w') {
+		x--;
+	}
+}boolean result = x ==0 && y ==0;
+        return result;
     }
 }

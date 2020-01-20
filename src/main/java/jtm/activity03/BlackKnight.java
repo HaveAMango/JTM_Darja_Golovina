@@ -127,10 +127,12 @@ public class BlackKnight {
 	// START
 	private String aliveKnights() {
 		String[] names = new String[knights.length];
+		String[] aliveNames = new String[names.length];
+
 		//String[] aliveNames = new String[];
 		for (int i = 0; i < knights.length; i++) {
 			if (knights[i].alive == true) {
-				String[] aliveNames = new String[i];
+				aliveNames[names.length - i].name;
 				//names[i] = knights[i].name;
 				return String.join(", ", aliveNames);
 			}else {

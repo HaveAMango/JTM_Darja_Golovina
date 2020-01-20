@@ -1,5 +1,7 @@
 package jtm.activity04;
 
+import org.eclipse.aether.spi.connector.Transfer;
+
 public class TrafficManagementSystem {
 	static Transport[] transports;
 	static Road[] roads;
@@ -17,10 +19,11 @@ public class TrafficManagementSystem {
 
 	public static Transport[] getTransports() {
 		// TODO return required value
-		return null;
+		return transports;
 	}
 
 	public static void addTransport(int i) {
+		
 		// TODO create new array of transports in size of passed value
 	}
 

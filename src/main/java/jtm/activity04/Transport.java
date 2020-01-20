@@ -9,6 +9,13 @@ public class Transport {
 	private int tankSize; // tank size in litres
 	private float fuelInTank; // fuel in tank
 
+	public Transport(String id, float consumption, int tankSize, float fuelInTank) {
+		super();
+		this.id = id;
+		this.consumption = consumption;
+		this.tankSize = tankSize;
+		this.fuelInTank = tankSize;
+	}
 	/*- TODO #1
 	 * Generate Constructor using Fields...
 	 * which sets id, consumption, tankSize
@@ -33,16 +40,21 @@ public class Transport {
 
 	// Return transport id and type as string e.g. "AAA Transport"
 	// HINT: use this.getClass().getSimpleName(); to get type of transport
-	protected final String getType() {
-		// TODO return required value
-		return "";
-	}
-
+	
 	// HINT: use getType() to describe transport and road.toString() to describe
 	// road
 	// HINT: String.format(Locale.US, "%.2f", float) to format float number with
 	// fixed mask
 	public String move(Road road) {
+		if (fuelInTank>tankSize) {
+			fuelInTank =tankSize;
+			return getType()+ "is moving on " + road.getFrom() + "–" + 
+					road.getTo()+ ", " +road.getDistance()+ "km" ;
+						
+					}else if(fuelInTank<tankSize) {
+						float fuelNeeded;
+					}
+		
 		// TODO If transport has enough fuel, decrease actual amount of fuel by
 		// necessary amount and return String in form:
 		// "AAA Type is moving on From–To, 180km"
@@ -51,5 +63,61 @@ public class Transport {
 		// fuel:0.00l, fuel in tank:0.00l"
 		return "";
 	}
+	
+	
+	protected final String getType() {
+		this.getClass().getSimpleName();
+		
+		// TODO return required value
+		return id + this.getClass().getSimpleName();
+	}
+
+	public String toString() {
+		return "Id:"+ id+ " cons:"+ String.format(Locale.US, "%.2f", consumption) + "km, tank:"+ tankSize + "l, "
+				+ "fuel:"+ String.format(Locale.US, "%.2f", fuelInTank) +"l" ;
+	}
+
+
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+	public float getConsumption() {
+		return consumption;
+	}
+
+
+	public void setConsumption(float consumption) {
+		this.consumption = consumption;
+	}
+
+
+	public int getTankSize() {
+		return tankSize;
+	}
+
+
+	public void setTankSize(int tankSize) {
+		this.tankSize = tankSize;
+	}
+
+
+	public float getFuelInTank() {
+		return fuelInTank;
+	}
+
+
+	public void setFuelInTank(float fuelInTank) {
+		this.fuelInTank = fuelInTank;
+	}
+
+
+
 
 }
