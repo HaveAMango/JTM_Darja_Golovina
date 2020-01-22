@@ -23,24 +23,28 @@ public class TrafficManagementSystem {
 	}
 
 	public static void addTransport(int i) {
-		
-		// TODO create new array of transports in size of passed value
+	transports = new Transport[i];
+				// TODO create new array of transports in size of passed value
 	}
 
 	public static void setVehicle(Transport transport, int i) {
+			transports[i] = transport;
 		// TODO set passed transport into transports array cell of passed index
 	}
 
 	public static void addRoads(int i) {
+		roads = new Road[i];
 		// TODO create new array of roads in size of passed value
 	}
 
+
 	public static Road[] getRoads() {
 		// TODO return required value
-		return null;
+		return roads;
 	}
 
 	public static void setRoad(Road road, int i) {
+		roads[i] = road;
 		// TODO set passed road into passed cell of roads array
 	}
 

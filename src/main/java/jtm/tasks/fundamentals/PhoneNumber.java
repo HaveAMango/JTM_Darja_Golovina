@@ -19,17 +19,20 @@ public class PhoneNumber {
 	 */
 
 	public static String createPhoneNumber(int[] numbers) {
-    	String str ="";
-    	for (int i = 0; i < numbers.length; i++) {
-    		if (i == 0) {
-    			str = str + "(";
-    			}
-    		if (i == 3) {
-    			str = str+ ") ";
-    			}
-    		if (i == 6) {
-    			str = str+ "-"; 
-    			}    	
-    	str =str + numbers[i];}
-	
-    	return str;}}
+		String str = "";
+		for (int i = 0; i < numbers.length; i++) {
+			if (i == 0) {
+				str = str + "(";
+			}
+			if (i == 3) {
+				str = str + ") ";
+			}
+			if (i == 6) {
+				str = str + "-";
+			}
+			str = str + numbers[i];
+		}
+
+		return str;
+	}
+}
