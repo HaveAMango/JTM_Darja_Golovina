@@ -108,45 +108,53 @@ public class BlackKnight {
 		// Where "Arthur, Cnut" are names of still alive knights
 		// Else return "You'l burn in hell forever!"
 		// START
-		if (!this.alive) {
-			return "Only chicken beats dead!";
-		}
-		if (head > 0) {
+		
+		if (this.alive) {
 			head--;
 			this.alive = false;
-			if (aliveKnights > 0) {
-				return "You'l newer win! " + aliveKnights() + " will still fight!";
-			} else {
-				return "You'l burn in hell forever!";
-			}
+			aliveKnights--;
+			deadKnights++;
+			if (aliveKnights >0) {
+			return "You'l newer win! " + aliveKnights() + " will still fight!";
+		} else 
+			return "You'l burn in hell forever!";
 		}
-		// END
-		return "";
+		else {
+			return "Only chicken beats dead!";
+		}
+
 	}
 
 	// START
 	private String aliveKnights() {
 		String[] names = new String[knights.length];
-		String[] aliveNames = new String[names.length];
-
-		//String[] aliveNames = new String[];
+		String[] aliveNames = new String[knights.length];
+		int aliveCounter = 0;
 		for (int i = 0; i < knights.length; i++) {
 			if (knights[i].alive == true) {
-				aliveNames[names.length - i].name;
-				//names[i] = knights[i].name;
-				return String.join(", ", aliveNames);
-			}else {
-				return names[0];
+				aliveNames[aliveCounter] = knights[i].name;
+				aliveCounter++;
+			} else {
+//				aliveNames[aliveCounter] = "";
 			}
 		}
+		if (aliveNames.length > 0) {
+			String[] aliveFull = new String[aliveCounter];
+			for (int i = 0; i < aliveCounter; i++) {
+				aliveFull[i] = aliveNames[i];
+			}
+			return String.join(", ", aliveFull);
+		} else {
+			return " ";
+		}
 
-		
 		// TODO
 		//
 		// Build comma separated string of knights who are still alive
 		// e.g. if Cnut and Arthur are still alive return Cnut, Arthur
 		// If only Arthur is alive return Arthur
 		// If no one is alive return empty string
+
+		// END
 	}
-	// END
 }
