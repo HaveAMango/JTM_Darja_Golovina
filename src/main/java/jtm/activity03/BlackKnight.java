@@ -1,6 +1,9 @@
 package jtm.activity03;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Black Knight is brave soldier who fights till he is alive. He doesn't bother
@@ -127,7 +130,6 @@ public class BlackKnight {
 
 	// START
 	private String aliveKnights() {
-		String[] names = new String[knights.length];
 		String[] aliveNames = new String[knights.length];
 		int aliveCounter = 0;
 		for (int i = 0; i < knights.length; i++) {

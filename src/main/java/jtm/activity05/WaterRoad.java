@@ -1,6 +1,6 @@
-package jtm.activity04;
+package jtm.activity05;
 
-import jtm.activity05.Road;
+import jtm.activity04.Road;
 
 public class WaterRoad extends Road {
 

@@ -2,8 +2,6 @@ package jtm.activity04;
 
 import org.eclipse.aether.spi.connector.Transfer;
 
-import jtm.activity05.Road;
-
 public class TrafficManagementSystem {
 	static Transport[] transports;
 	static Road[] roads;

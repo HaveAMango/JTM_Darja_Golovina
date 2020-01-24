@@ -1,4 +1,4 @@
-package jtm.activity05;
+package jtm.activity04;
 
 public class Road {
 	private String from; // Start point
@@ -28,6 +28,11 @@ public class Road {
 	}
 	public void setDistance(int distance) {
 		this.distance = distance;
+	}
+	
+	public static void main(String[] args) {
+		int a = 1;
+		System.out.println(a++ + ++a);
 	}
 	
 	
