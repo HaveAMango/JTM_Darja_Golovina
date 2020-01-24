@@ -5,6 +5,7 @@ import jtm.activity03.Array;
 import java.util.Arrays;
 
 public class SupermarketQueue {
+	
 
     /*
         TODO
@@ -30,6 +31,10 @@ public class SupermarketQueue {
      */
 
     public static int solveSuperMarketQueue(int[] customers, int n) {
+    
+//    	for(int i = 0; i<=customers.length; i++) {
+//    		customers[i];
+//    	}
        return -1;
     }
 
