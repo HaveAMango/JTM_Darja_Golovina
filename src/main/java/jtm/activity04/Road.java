@@ -30,11 +30,6 @@ public class Road {
 		this.distance = distance;
 	}
 	
-	public static void main(String[] args) {
-		int a = 1;
-		System.out.println(a++ + ++a);
-	}
-	
 	
 
 	/*- TODO #1
