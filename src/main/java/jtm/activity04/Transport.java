@@ -2,8 +2,11 @@ package jtm.activity04;
 
 import java.util.Locale;
 
+<<<<<<< HEAD
 import jtm.activity05.Ship;
 
+=======
+>>>>>>> 72bf17c0c7217dc1b1cdb68f561b0b6b65b5219b
 public class Transport {
 	// Do not change access modifiers to encapsulate internal properties!
 	private String id; // Transport registration number

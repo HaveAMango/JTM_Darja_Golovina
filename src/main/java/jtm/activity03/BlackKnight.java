@@ -1,6 +1,9 @@
 package jtm.activity03;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Black Knight is brave soldier who fights till he is alive. He doesn't bother
