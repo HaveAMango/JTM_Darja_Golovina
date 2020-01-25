@@ -6,23 +6,21 @@ import jtm.activity04.Transport;
 public class Ship extends Transport {
 
 	
+
+		public Ship(String id, float consumption, int tankSize, byte sails) {
+		super(id, consumption, tankSize);
+		this.sails = sails;
 		// TODO Auto-generated constructor stub
-	
-	
+	}
 
-<<<<<<< HEAD
-	protected byte sails;
+		private byte sails;
 
-		public Ship(String id, byte sails) {
-			super(id, 0, 0);
+		public byte getSails() {
+			return sails;
+		}
+
+		public void setSails(byte sails) {
 			this.sails = sails;
-=======
-	protected byte numberOfSails;
-
-		public Ship(String id, byte numberOfSails) {
-			super(id, 0, 0);
-			this.numberOfSails = numberOfSails;
->>>>>>> 72bf17c0c7217dc1b1cdb68f561b0b6b65b5219b
 		}
 
 		@Override
@@ -34,7 +32,7 @@ public class Ship extends Transport {
 			}
 			
 		}
-		
+}
 
 <<<<<<< HEAD
 //		Override move(Road) to return String in form:
