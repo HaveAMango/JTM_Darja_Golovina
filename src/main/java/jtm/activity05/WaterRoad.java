@@ -1,6 +1,6 @@
-package jtm.activity04;
+package jtm.activity05;
 
-import jtm.activity05.Road;
+import jtm.activity04.Road;
 
 public class WaterRoad extends Road {
 
@@ -17,7 +17,7 @@ public class WaterRoad extends Road {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "WaterRoad" + super.getFrom() + " — "+super.getTo() +",/ " + super.getDistance() +"km";
+		return "WaterRoad " + super.getFrom() + " — "+super.getTo() +", " + super.getDistance() +"km";
 	}
 
 }

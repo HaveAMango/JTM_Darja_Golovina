@@ -2,7 +2,7 @@ package jtm.activity04;
 
 import java.util.Locale;
 
-import jtm.activity05.Road;
+import jtm.activity05.Ship;
 
 public class Transport {
 	// Do not change access modifiers to encapsulate internal properties!
@@ -10,6 +10,7 @@ public class Transport {
 	private float consumption; // fuel consumption in litres per 100km
 	private int tankSize; // tank size in litres
 	private float fuelInTank; // fuel in tank
+
 
 	public Transport(String id, float consumption, int tankSize) {
 		super();

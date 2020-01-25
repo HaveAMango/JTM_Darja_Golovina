@@ -127,7 +127,6 @@ public class BlackKnight {
 
 	// START
 	private String aliveKnights() {
-		String[] names = new String[knights.length];
 		String[] aliveNames = new String[knights.length];
 		int aliveCounter = 0;
 		for (int i = 0; i < knights.length; i++) {
@@ -147,6 +146,7 @@ public class BlackKnight {
 		} else {
 			return " ";
 		}
+		
 
 		// TODO
 		//

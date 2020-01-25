@@ -1,4 +1,4 @@
-package jtm.activity05;
+package jtm.activity04;
 
 public class Road {
 	private String from; // Start point

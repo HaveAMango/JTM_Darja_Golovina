@@ -13,12 +13,13 @@ public class LetsRide {
 
 	public LetsRide(int busStopCount, int passengersInStop, int seatsCount) {
 		this.busStopCount = busStopCount;
-		//this.passengersInStop = passengersInStop;
+//		this.passengersInStop = passengersInStop;
 		this.seatsCount = seatsCount;
 		// TODO #1: Set passed values to LetsRide object
 	}
 
 	public int passengersAtRouteEnd() {
+		
 		
 		// TODO #2: Calculate how many passengers will be in bus at the end of
 		// route. Overall passenger count
