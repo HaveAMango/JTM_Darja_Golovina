@@ -1,6 +1,7 @@
 package jtm.activity06;
 
 public class Human implements Humanoid {
+	
 	private int weight;
 	private boolean alive;
 	private String[] backpack;
@@ -49,7 +50,7 @@ public class Human implements Humanoid {
 	@Override
 	public int getArmCount() {
 		// TODO Auto-generated method stub
-		return 2;
+		return ARM_COUNT;
 	}
 
 	@Override
