@@ -42,14 +42,20 @@ public class Order implements Comparable<Order> {
 	@Override
 	public int compareTo(Order o) {
 		if (this.name.compareTo(o.name) != 0) {
-			return this.name.compareTo(o.name);
+			return this.name.compareTo(o.name) > 0 ? 1:-1;
 		}
 
 		if (this.customer.compareTo(o.customer) != 0) {
-			return this.customer.compareTo(o.customer);
+			return this.customer.compareTo(o.customer)  > 0 ? 1:-1;
 		}
-		
-		return this.count - o.count;
+
+		if (this.count == o.count) {
+			return 0;
+		} else if (this.count > o.count) {
+			return 1;
+		} else {
+			return -1;
+		}
 	}
 
 	@Override
