@@ -1,5 +1,8 @@
 package jtm.activity09;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /*- TODO #2
  * Implement Iterator interface with Orders class
@@ -29,7 +32,40 @@ package jtm.activity09;
  *  - ItemN: Customer1,Customer2: 4
  */
 
-public class Orders {
+public class Orders implements Iterator<Order> {
+	List<Order> orderList;
+	private int position = -1;
+
+	public Orders() {
+	}
+	public void add(Order item){
+		orderList.add(item);
+	}
+	
+	private Order current() {
+		return null;
+	}
+	public void remove() {
+		if (next() == null) {
+			System.out.println("IllegalStateException");
+		}
+	}
+	public void sort() {
+		orderList.sort(null);
+	}
+
+	@Override
+	public boolean hasNext() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Order next() {
+		//orderList.get(position++);
+			
+		return orderList.get(position++);
+	}
 	/*-
 	 * TODO #1
 	 * Create data structure to hold:
