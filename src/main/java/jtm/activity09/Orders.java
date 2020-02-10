@@ -2,9 +2,12 @@ package jtm.activity09;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+
+import com.google.common.collect.ImmutableSet;
 
 /*- TODO #2
  * Implement Iterator interface with Orders class
@@ -47,7 +50,8 @@ public class Orders implements Iterator<Order> {
 	}
 
 	public Set<Order> getItemsSet() {
-		return (Set<Order>) orderList.set(0, null);
+		Set<Order> set = new HashSet<Order>();
+		return set<Order> set == ImmutableSet.copyOf(orderList);
 	}
 
 	public void add(Order item) {
