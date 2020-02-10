@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 import com.google.common.collect.ImmutableSet;
@@ -40,9 +41,11 @@ import com.google.common.collect.ImmutableSet;
 public class Orders implements Iterator<Order> {
 	List<Order> orderList;
 	private int position = -1;
+	private Iterator<Order> iterator;
 
 	public Orders() {
-		orderList = new ArrayList<Order>();   
+		orderList = new ArrayList<Order>();
+		iterator = orderList.iterator();
 	}
 
 	public List<Order> getItemsList() {
@@ -50,47 +53,63 @@ public class Orders implements Iterator<Order> {
 	}
 
 	public Set<Order> getItemsSet() {
+<<<<<<< HEAD
 		Set<Order> set = new HashSet<Order>();
 		return set<Order> set == ImmutableSet.copyOf(orderList);
+=======
+		// return (Set<Order>) orderList.set(0, null);
+		return null;
+>>>>>>> 04777edad9aca0d49310199076728dc341f99fa9
 	}
 
 	public void add(Order item) {
 		orderList.add(item);
-	}
-
-	private Order current() {
-		return orderList.get(position);
-	}
-
-	public void remove() {
-		if (current() == null) {
-			System.out.println("IllegalStateException");
-		} else {
-			orderList.remove(current()); 
-		}
+		iterator = orderList.iterator();
 	}
 
 	@Override
 	public boolean hasNext() {
-		if (next() == null) {
-			return false;
-		} else {
-			return true;
-		}
+		// TODO Auto-generated method stub
+		return iterator.hasNext();
+//		if (orderList.size() <= position + 1) {
+//			return false;
+//		} else {
+//			return true;
+//		}
+	}
+
+	@Override
+	public void remove() {
+		// TODO Auto-generated method stub
+		iterator.remove();
+//		if (position < 0) {
+//			throw new NoSuchElementException();
+//		}
+//		if (position < orderList.size()) {
+//			orderList.remove(position);
+//		} else {
+//			throw new NoSuchElementException();
+//		}
 	}
 
 	@Override
 	public Order next() {
-		return orderList.get(position++);
+		if (!hasNext()) {
+			throw new NoSuchElementException();
+		}
+		
+		return iterator.next();
+		//return orderList.get(position);
 	}
 
 	public String toString() {
 		return orderList.toString();
 	}
-	
+
 	public void sort() {
 		Collections.sort(orderList);
 	}
+
 	/*-
 	 * TODO #1
 	 * Create data structure to hold:
@@ -101,4 +120,19 @@ public class Orders implements Iterator<Order> {
 	 *   2. when constructing list of orders, set number of current order to -1
 	 *      (which is usual approach when working with iterateable collections).
 	 */
+
+	public static void main(String[] args) {
+		Orders orders = new Orders();
+		System.out.println(orders.hasNext());
+
+		orders.add(new Order("orderer", "item", 1));
+
+		System.out.println(orders.hasNext());
+
+		orders.next();
+		System.out.println(orders.toString());
+		orders.remove();
+
+		System.out.println(orders.toString());
+	}
 }
