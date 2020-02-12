@@ -15,30 +15,53 @@ public class SimpleCalc {
 
 		try {
 			validateInput(a, b);
-			int add = a + b;
-					return add;
+			int result = a + b;
+			validateOutput(result);
+			return result;
 		} catch (SimpleCalcException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 			return null;
 		}
 	}
-		
-		
+
 	public static Integer subtract(int a, int b) {
-		int substract = a - b;
-		return substract;
+		try {
+			validateInput(a, b);
+			int result = a - b;
+			validateOutput(result);
+			return result;
+		} catch (SimpleCalcException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			return null;
+		}
 	}
 
 	public static Integer multiply(int a, int b) {
-		int multiply = a * b;
-		return multiply;
+		try {
+			validateInput(a, b);
+			int result = a * b;
+			validateOutput(result);
+			return result;
+		} catch (SimpleCalcException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			return null;
+		}
 	}
 
 	public static Integer divide(int a, int b) {
-		
-		int divide = a / b;
-		return divide;
+		try {
+			validateInput(a, b);
+			int result = a / b;
+			validateOutput(result);
+			return result;
+		} catch (SimpleCalcException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			return null;
+		}
 	}
 
 	// TODO
@@ -51,12 +74,12 @@ public class SimpleCalc {
 	 */
 
 	private static void validateInput(int a, int b) throws SimpleCalcException {
-		if (a <= 10 || a >= -10) {
+		if (a > 10 || a < -10) {
 			throw new SimpleCalcException("Input value " + a + " is out of range [-10,10]");
 		}
-		if (b <= 10 || b >= -10) {
+		if (b < -10 || b > 10) {
 			throw new SimpleCalcException("Input value " + b + " is out of range [-10,10]");
-		
+
 		}
 	}
 
@@ -68,7 +91,7 @@ public class SimpleCalc {
 	 * result of executed operation
 	 */
 	private static void validateOutput(int result) throws SimpleCalcException {
-		if (result <= 10 || result >= -10) {
+		if (result < -10 || result > 10) {
 			throw new SimpleCalcException("Result " + result + " is out of range [-10,10]");
 		}
 

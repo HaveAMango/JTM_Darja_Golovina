@@ -53,14 +53,10 @@ public class Orders implements Iterator<Order> {
 	}
 
 	public Set<Order> getItemsSet() {
-<<<<<<< HEAD
-		Set<Order> set = new HashSet<Order>();
-		return set<Order> set == ImmutableSet.copyOf(orderList);
-=======
+//		Set<Order> set = new HashSet<Order>();
+//		Set<Order> set = ImmutableSet.copyOf(orderList);
 		// return (Set<Order>) orderList.set(0, null);
-		return null;
->>>>>>> 04777edad9aca0d49310199076728dc341f99fa9
-	}
+		return null;	}
 
 	public void add(Order item) {
 		orderList.add(item);
