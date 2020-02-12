@@ -46,11 +46,9 @@ import jtm.extra11.PersonMatcherTests;
 		AnimalTests.class, // 7
 		SimpleCalcTests.class, // 8
 		OrdersTests.class, // 9
-		StreamEditorTest.class, // 10
-
+		
 		// Second week
 
-		ArrayFillerManagerTest.class, // 11
 		DatabaseTest.class, // 13
 
 		// extra activities
