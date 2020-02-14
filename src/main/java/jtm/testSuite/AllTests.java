@@ -13,8 +13,6 @@ import jtm.activity06.InterfaceTests;
 import jtm.activity07.AnimalTests;
 import jtm.activity08.SimpleCalcTests;
 import jtm.activity09.OrdersTests;
-import jtm.activity10.StreamEditorTest;
-import jtm.activity11.ArrayFillerManagerTest;
 import jtm.activity13.DatabaseTest;
 import jtm.extra01.GetOneTest;
 import jtm.extra01.ZodiacTest;
