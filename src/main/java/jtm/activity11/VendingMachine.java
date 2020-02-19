@@ -22,6 +22,7 @@ public class VendingMachine {
 	 * from chooseProduct method by snickers,SNICKERS,sNickers etc.
 	 */
 	public void addProducts(String product, Double price) {
+		product.equalsIgnoreCase(product);
 		if(products == null) {
 			this.products = new HashMap<>();
 		} else {
@@ -55,9 +56,9 @@ public class VendingMachine {
 	 */
 	public String chooseProduct(String product) {
 		if(this.coinsInMachine > this.products.get(product)) {
-			return product;
+			return product + " "+ balance();
 		}
-		return null;
+		return "Balance not enough";
 	}
 	
 	/*
