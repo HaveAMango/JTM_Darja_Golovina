@@ -25,9 +25,9 @@ public class VendingMachine {
 		product.equalsIgnoreCase(product);
 		if(products == null) {
 			this.products = new HashMap<>();
-		} else {
-			this.products.put(product,price);
-		}
+		} 
+		this.products.put(product,price);
+		
 	}
 	
 	/*
