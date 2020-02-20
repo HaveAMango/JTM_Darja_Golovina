@@ -18,7 +18,6 @@ public class VendingMachineTest {
 	}
 
 	@Test
-
 	public void testInitialBalance() {
 		String result = machine.balance();
 		assertEquals("Balance expected to be 0.00$",
@@ -27,7 +26,6 @@ public class VendingMachineTest {
 	}
 
 	@Test
-
 	public void testDepositAndBalance() {
 		machine.depositCoins(7.63);
 		String result = machine.balance();
@@ -38,7 +36,6 @@ public class VendingMachineTest {
 	}
 
 	@Test
-
 	public void testProductNotEnoughBalance() {
 
 		// Register product in Vending Machine
@@ -49,7 +46,6 @@ public class VendingMachineTest {
 	}
 
 	@Test
-
 	public void testNonExistingProduct() {
 		// Register product in Vending Machine
 		machine.addProducts("snicker", 0.75);
@@ -60,12 +56,11 @@ public class VendingMachineTest {
 	}
 
 	@Test
-
 	public void testNonCaseSensitiveProducts() {
 		machine.addProducts("snicker", 0.75);
 		machine.depositCoins(1.00);
 		String result = machine.chooseProduct("SNICKER");
-		assertEquals("snicker", result);
+		assertEquals("snicker 0.25$", result);
 
 	}
 
