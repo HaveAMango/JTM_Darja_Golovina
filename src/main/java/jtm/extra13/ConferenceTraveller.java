@@ -27,6 +27,13 @@ public class ConferenceTraveller {
      */
 
     public static String conferencePicker(String[] citiesVisited, String[] citiesOffered) {
+    	for (int i = 0; i < citiesVisited.length; i++) {
+    		for (int n = 0; n < citiesOffered.length; n++) {
+    			if (citiesVisited [i] == citiesOffered[n]) {
+    				return null;
+    			}
+    		}
+    	}
        return null;
     }
 
