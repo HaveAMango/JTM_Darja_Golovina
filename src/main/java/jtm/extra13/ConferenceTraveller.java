@@ -37,7 +37,7 @@ public class ConferenceTraveller {
 
 			return city;
 		}
-		return null;
+		return "No worthwhile conferences this year!";
 	}
 
 	private static boolean contains(String city, String[] cities) {

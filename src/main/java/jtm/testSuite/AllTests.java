@@ -13,7 +13,6 @@ import jtm.activity06.InterfaceTests;
 import jtm.activity07.AnimalTests;
 import jtm.activity08.SimpleCalcTests;
 import jtm.activity09.OrdersTests;
-import jtm.activity13.DatabaseTest;
 import jtm.extra01.GetOneTest;
 import jtm.extra01.ZodiacTest;
 import jtm.extra02.ArrayListMethodsTest;
@@ -47,7 +46,7 @@ import jtm.extra11.PersonMatcherTests;
 		
 		// Second week
 
-		DatabaseTest.class, // 13
+
 
 		// extra activities
 		GetOneTest.class, // 1
