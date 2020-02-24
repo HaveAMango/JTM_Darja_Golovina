@@ -24,6 +24,7 @@ public class MorseCode {
 
      */
     public static String translateToMorse(String text) {
+    	
         return null;
     }
 

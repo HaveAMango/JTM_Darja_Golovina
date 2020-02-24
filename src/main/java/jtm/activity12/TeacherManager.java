@@ -105,7 +105,7 @@ public class TeacherManager {
 	 */
 	public boolean insertTeacher(String firstName, String lastName) {
 		try {
-			Statement stmt = conn.createStatement();// prepare create difference???
+			Statement stmt = conn.createStatement();
 
 			ResultSet rs = stmt.executeQuery("insert into * Teacher firstName =" + firstName + " and lastName=" + lastName);
 			while (rs.next()) {
@@ -145,6 +145,7 @@ public class TeacherManager {
 	 * the Teacher object.
 	 */
 	public boolean updateTeacher(Teacher teacher) {
+		
 		/*
 		 * TODO Execute an SQL statement that updates teacher information. Update
 		 * teacher in database by it's ID If ONE teacher is successfully updated, return
@@ -154,6 +155,12 @@ public class TeacherManager {
 	}
 
 	public boolean deleteTeacher(int id) {
+//		try {
+//			Statement stmt = conn.createStatement();
+
+//			ResultSet rs = stmt.executeQuery("delite from * Teacher where id == true) {
+			
+		
 		/*
 		 * TODO Execute an SQL statement that deletes teacher from database. Delete
 		 * teacher by it's ID If one teacher is successfully deleted, return true If no
@@ -161,7 +168,7 @@ public class TeacherManager {
 		 */
 		return false;
 	}
-
+	
 	public void closeConnection() {
 		/*
 		 * TODO Close connection to the database server and reset conn object to null
