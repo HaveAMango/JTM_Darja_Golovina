@@ -27,9 +27,9 @@ public class TeacherManager {
 
 		try {
 
-			Class.forName("com.mysql.jdbc.Driver");
+			Class clazz = Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/db?autoReconnect=true&useSSL=false&characterEncoding=utf8", "admin",
+					"jdbc:mysql://localhost:3306/database_activity?autoReconnect=true&useSSL=false&characterEncoding=utf8", "admin",
 					"abcd1234");
 			conn.setAutoCommit(false);
 
@@ -49,7 +49,7 @@ public class TeacherManager {
 			Statement stmt = conn.createStatement();// prepare create difference???
 
 			ResultSet rs = stmt.executeQuery("select * Teacher where id =" + id);
-			if (rs.first() == true) {
+			if (rs.first()) {
 				id = rs.getInt(1);
 				String lastName = rs.getString(2);
 				String firstName = rs.getString(3);
@@ -72,43 +72,52 @@ public class TeacherManager {
 	 * Returns a list of Teacher objects.
 	 */
 	public List<Teacher> findTeacher(String firstName, String lastName) {
+		ArrayList<Teacher> teachers = new ArrayList<Teacher>();
 		try {
 			Statement stmt = conn.createStatement();// prepare create difference???
 
-			ResultSet rs = stmt.executeQuery("select * Teacher where firstName =" + firstName);
-			while (rs.first() == true) {
-				ArrayList<String> first = new ArrayList<String>();
-				Integer id = rs.getInt(1);
-				lastName = rs.getString(2);
-				firstName = rs.getString(3);
-			first.add(firstName);
-			}
-			ResultSet rst = stmt.executeQuery("select * Teacher where firstName =" + lastName);
-			ArrayList<String> last = new ArrayList<String>();
-			if (rs.first() == true) {
-				Integer id = rs.getInt(1);
-				lastName = rs.getString(2);
-				firstName = rs.getString(3);
-				last.add(lastName);
+			ResultSet rs = stmt
+					.executeQuery("select * Teacher where firstName =" + firstName + " or lastName=" + lastName);
 
+			while (rs.next()) {
+				Integer id = rs.getInt(1);
+				lastName = rs.getString(2);
+				firstName = rs.getString(3);
+				Teacher teacher = new Teacher(id, lastName, firstName);
+				teachers.add(teacher);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		/*
-		 * TODO Write an sql statement that searches teacher by first and last name and
-		 * returns results as ArrayList<Teacher>. Result list should include all partial
-		 * results as well, e.g. if first name is matching but last name is not still
-		 * include, the teacher in result list, same applies for lastName If nothing is
-		 * found return empty list!
-		 */
-		return null;
+		return teachers;
 	}
 
-	/**
-	 * Insert an new teacher (first name and last name) into the table.
+	/*
+	 * TODO Write an sql statement that searches teacher by first and last name and
+	 * returns results as ArrayList<Teacher>. Result list should include all partial
+	 * results as well, e.g. if first name is matching but last name is not still
+	 * include, the teacher in result list, same applies for lastName If nothing is
+	 * found return empty list!
+	 *
+	 * }
+	 * 
+	 * /** Insert an new teacher (first name and last name) into the table.
 	 */
 	public boolean insertTeacher(String firstName, String lastName) {
+		try {
+			Statement stmt = conn.createStatement();// prepare create difference???
+
+			ResultSet rs = stmt.executeQuery("insert into * Teacher firstName =" + firstName + " and lastName=" + lastName);
+			while (rs.next()) {
+				Integer id = rs.getInt(1);
+				lastName = rs.getString(2);
+				firstName = rs.getString(3);
+				Teacher teacher = new Teacher(id, lastName, firstName);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		/*
 		 * TODO Execute an SQL statement that inserts teacher in database. SQL statement
 		 * should contain only firstName and lastName, ID should be automatically
