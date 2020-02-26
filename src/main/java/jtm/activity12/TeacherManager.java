@@ -9,8 +9,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeacherManager {
+import org.springframework.stereotype.Component;
 
+@Component
+public class TeacherManager {
+	Teacher teacher = new Teacher();
 	public static void main(String[] args) {
 		System.out.println(new TeacherManager().findTeacher(1));
 	}
@@ -29,13 +32,11 @@ public class TeacherManager {
 
 			Class clazz = Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/database_activity?autoReconnect=true&useSSL=false&characterEncoding=utf8", "admin",
-					"abcd1234");
+					"jdbc:mysql://localhost:3306/db?autoReconnect=true&useSSL=false&characterEncoding=utf8",
+					"admin", "abcd1234");
 			conn.setAutoCommit(false);
 
-			PreparedStatement stmt = conn.prepareStatement("select Id,lastName,firstName from Teacher");
 
-			ResultSet rs = stmt.executeQuery();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -46,35 +47,33 @@ public class TeacherManager {
 	 */
 	public Teacher findTeacher(int id) {
 		try {
-			Statement stmt = conn.createStatement();// prepare create difference???
+			Statement stmt = conn.createStatement();
 
-			ResultSet rs = stmt.executeQuery("select * Teacher where id =" + id);
+			ResultSet rs = stmt.executeQuery("select * from Teacher where id =" + id);
 			if (rs.first()) {
 				id = rs.getInt(1);
 				String lastName = rs.getString(2);
 				String firstName = rs.getString(3);
-				Teacher teacher = new Teacher(id, firstName, lastName);
+				teacher = new Teacher(id, firstName, lastName);
 				return teacher;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		/*
-		 * TODO Execute an SQL statement that searches teacher by ID. If teacher is
-		 * found return Teacher object with values from DB If teacher is not found
-		 * return null
-		 */
-		return null;
+		return teacher;
 	}
 
-	/**
-	 * Returns a list of Teacher objects.
+	/*
+	 * TODO Execute an SQL statement that searches teacher by ID. If teacher is
+	 * found return Teacher object with values from DB If teacher is not found
+	 * return null }
+	 * 
+	 * /** Returns a list of Teacher objects.
 	 */
 	public List<Teacher> findTeacher(String firstName, String lastName) {
 		ArrayList<Teacher> teachers = new ArrayList<Teacher>();
 		try {
-			Statement stmt = conn.createStatement();// prepare create difference???
+			Statement stmt = conn.createStatement();
 
 			ResultSet rs = stmt
 					.executeQuery("select * Teacher where firstName =" + firstName + " or lastName=" + lastName);
@@ -104,16 +103,14 @@ public class TeacherManager {
 	 * /** Insert an new teacher (first name and last name) into the table.
 	 */
 	public boolean insertTeacher(String firstName, String lastName) {
+		boolean insert;
 		try {
 			Statement stmt = conn.createStatement();
 
-			ResultSet rs = stmt.executeQuery("insert into * Teacher firstName =" + firstName + " and lastName=" + lastName);
-			while (rs.next()) {
-				Integer id = rs.getInt(1);
-				lastName = rs.getString(2);
-				firstName = rs.getString(3);
-				Teacher teacher = new Teacher(id, lastName, firstName);
-			}
+			int rs = stmt
+					.executeUpdate("insert into * Teacher firstName =" + firstName + " and lastName=" + lastName + "id auto_increment");
+				Teacher teacher = new Teacher();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -145,7 +142,7 @@ public class TeacherManager {
 	 * the Teacher object.
 	 */
 	public boolean updateTeacher(Teacher teacher) {
-		
+
 		/*
 		 * TODO Execute an SQL statement that updates teacher information. Update
 		 * teacher in database by it's ID If ONE teacher is successfully updated, return
@@ -155,12 +152,11 @@ public class TeacherManager {
 	}
 
 	public boolean deleteTeacher(int id) {
-//		try {
-//			Statement stmt = conn.createStatement();
+try {
+//Statement stmt = conn.createStatement();
 
-//			ResultSet rs = stmt.executeQuery("delite from * Teacher where id == true) {
-			
-		
+//ResultSet rs = stmt.executeQuery("d from * Teacher where id="+ id) {
+
 		/*
 		 * TODO Execute an SQL statement that deletes teacher from database. Delete
 		 * teacher by it's ID If one teacher is successfully deleted, return true If no
@@ -168,8 +164,9 @@ public class TeacherManager {
 		 */
 		return false;
 	}
-	
+
 	public void closeConnection() {
+		
 		/*
 		 * TODO Close connection to the database server and reset conn object to null
 		 */
