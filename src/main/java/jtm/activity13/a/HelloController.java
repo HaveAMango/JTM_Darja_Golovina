@@ -20,13 +20,13 @@ public class HelloController {
         TODO
         Set REST method path to /numbers
      */
-    @GetMapping
+    @GetMapping("/numbers")
     public String numbers(@RequestParam(required = false, defaultValue = "1") Integer from,
     		@RequestParam(required = false, defaultValue = "20") Integer to) {
     	String numbers = "";
     	
     	for (int i=from; i<to; i++) {
-    		numbers = Integer.toString(i);
+    		numbers += Integer.toString(i);
     	}
         /* TODO
            Add RequestParam annotations to both parameters, set both parameters as non-required,
